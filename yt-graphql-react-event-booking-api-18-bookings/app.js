@@ -34,14 +34,12 @@ app.use(
 
 mongoose
   .connect(
-    `${process.env.DATABASE_URL}`,{
-      useNewUrlParser:true
-    }
+    `mongodb+srv://${process.env.MONGO_USER}:${
+      process.env.MONGO_PASSWORD
+    }@cluster0-ntrwp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`
   )
   .then(() => {
-    app.listen(5000,()=>{
-      console.log('server is running on port 5000')
-    });
+    app.listen(8000);
   })
   .catch(err => {
     console.log(err);

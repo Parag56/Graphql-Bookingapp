@@ -35,7 +35,7 @@ module.exports = {
     }
     const token = jwt.sign(
       { userId: user.id, email: user.email },
-      process.env.JWTAUTH_KEY,
+      'somesupersecretkey',
       {
         expiresIn: '1h'
       }
