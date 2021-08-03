@@ -31,7 +31,7 @@ app.use(
     graphiql: true
   })
 );
-
+const port=process.env.PORT||5000
 mongoose
   .connect(
     `${process.env.DATABASE_URL}`,{
@@ -40,7 +40,7 @@ mongoose
   )
   .then(() => {
     app.listen(5000,()=>{
-      console.log('server is running on port 5000')
+      console.log('server is running on port',port)
     });
   })
   .catch(err => {
